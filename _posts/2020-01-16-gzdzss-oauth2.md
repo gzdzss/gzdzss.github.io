@@ -14,17 +14,6 @@ tags:
 
 # oauth2整合
 
-## eureka-server  注册中心     
-
-## [gzdzss-order 订单模块](https://github.com/gzdzss/gzdzss-oauth2/tree/master/gzdzss-order)
-
-## [gzdzss-storage 库存模块](https://github.com/gzdzss/gzdzss-oauth2/tree/master/gzdzss-storage)
-
-## [gzdzss-authserver 认证中心](https://github.com/gzdzss/gzdzss-oauth2/tree/master/gzdzss-authserver) 
-
-## [gzdzss-gateway 服务网关](https://github.com/gzdzss/gzdzss-oauth2/tree/master/gzdzss-gateway)
-
-
 ## 架构图
 
 ![image](https://github.com/gzdzss/gzdzss-oauth2/raw/master/oauth2.png)

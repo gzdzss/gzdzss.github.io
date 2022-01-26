@@ -7,8 +7,8 @@ author:     "周雁杰"
 catalog: false
 header-style: text
 tags:
-  - boot
-  - redis
+  - Redis 
+  - Spring-boot
 ---
 
 
