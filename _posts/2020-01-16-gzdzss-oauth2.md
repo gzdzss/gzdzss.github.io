@@ -3,7 +3,7 @@ layout:     post
 title:      "Oauth2实践"
 subtitle:   "oatuh2实践，分为单机本，与分布式版本"
 date:       2020-01-16 15:39:00
-author:     "周雁杰"
+author:     "Andrew"
 catalog: false
 header-style: text
 tags:

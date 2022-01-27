@@ -3,7 +3,7 @@ layout:     post
 title:      "springboot脚手架"
 subtitle:   "基于redis实现分布式锁，限流"
 date:       2019-07-29 15:28:00
-author:     "周雁杰"
+author:     "Andrew"
 catalog: false
 header-style: text
 tags:
