@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      "浅谈软件设计原则"
+title:      "浅谈软件设计原则(持续更新中)"
 subtitle:   "所谓的设计原则就是在大量的工程实践的基础上以及科学研究的基础上总结出来的一些经验和理念。"
-date:       2022-01-27 15:29:00
+date:       2022-02-10 18:00:00
 author:     "Andrew"
 catalog: false
 header-style: text
