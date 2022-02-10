@@ -15,7 +15,7 @@ tags:
 
 ### 七大设计原则
 1. [开闭原则](#1开闭原则 "开闭原则")
-2. [依赖导倒置原则](#2依赖导倒置原则 "依赖导倒置原则")
+2. [依赖倒置原则](#2依赖倒置原则 "依赖倒置原则")
 3. [单一职责原则](#3单一职责原则 "单一职责原则")
 4. [接口隔离原则](#4接口隔离原则 "接口隔离原则")
 5. [迪米特原则](#5迪米特原则 "迪米特原则")
@@ -190,8 +190,122 @@ demo地址:[https://github.com/gzdzss/blog-demo/tree/main/software-design-princi
 
 
 
-### 2.依赖导倒置原则
-> todo
+### 2.依赖倒置原则
+> 依赖倒置原则（Dependence Inversion Principle，DIP）是 Object Mentor 公司总裁罗伯特·马丁（Robert C.Martin）于 1996 年在 C++ Report 上发表的文章。
+>> 依赖倒置原则的原始定义为：高层模块不应该依赖低层模块，两者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象（High level modules shouldnot depend upon low level modules.Both should depend upon abstractions.Abstractions should not depend upon details. Details should depend upon abstractions）。其核心思想是：要面向接口编程，不要面向实现编程。
+
+示例[[3]](https://www.jianshu.com/p/b68e2cc9b4f5)
+
+> 假设我们现在有两辆车，一辆奔驰，一辆宝马，然后都需要让司机开车。
+>> 
+```java
+/**
+ * 宝马
+ */
+public class BMWCar {
+    public void run() {
+        System.out.println("宝马开动了！");
+    }
+}
+/**
+ * 奔驰
+ */
+public class BenzCar {
+    public void run() {
+        System.out.println("奔驰开动了！");
+    }
+}
+/**
+ * 司机
+ */
+public class Driver {
+    //开宝马
+    public void driveBMWCar(BMWCar car) {
+        car.run();
+    }
+    //开奔驰
+    public void driveBenzCar(BenzCar car) {
+        car.run();
+    }
+}
+```
+>> 执行测试类
+```java
+    public static void main(String[] args) {
+        Driver driver = new Driver();
+        driver.driveBMWCar(new BMWCar());
+        driver.driveBenzCar(new BenzCar());
+    }
+//宝马开动了！
+//奔驰开动了！
+```
+
+上面的代码好像没有什么问题。 那么如果现在又要新增特斯拉、奥迪、罗斯莱斯等车呢？难道要为每一辆新增的车去修改司机类？这显然是荒唐的。依赖于具体类，会导致类之间的耦合性太强，这就是在代码中依赖具体类的问题。
+
+> 我们可以将以上代码进行如下优化：
+>> 1.抽象车类
+```java
+public interface Car {
+    void run();
+}
+```
+>> 2.司机改造（注意：此时司机依赖的为抽象的车类，而不是具体的车类）
+```java
+public class Driver {
+    //开车
+    public void driveCar(Car car) {
+        car.run();
+    }
+}
+```
+>> 3.车类改造(只要具体的车类实现自抽象车类，那么无论是什么车，司机都可以开)
+```java
+/**
+ * 宝马
+ */
+public class BMWCar implements Car {
+    public void run() {
+        System.out.println("宝马开动了！");
+    }
+}
+/**
+ * 奔驰
+ */
+public class BenzCar implements Car {
+    public void run() {
+        System.out.println("奔驰开动了！");
+    }
+}
+/**
+ * 特斯拉
+ */
+public class TslaCar implements Car {
+    public void run() {
+        System.out.println("特斯拉开动了！");
+    }
+}
+```
+>> 4.执行测试方法
+```java
+    public static void main(String[] args) {
+        Driver driver = new Driver();
+        driver.driveCar(new BenzCar());
+        driver.driveCar(new BenzCar());
+        driver.driveCar(new TslaCar());
+    }
+//奔驰开动了！
+//奔驰开动了！
+//特斯拉开动了！
+```
+
+demo地址:[https://github.com/gzdzss/blog-demo/tree/main/software-design-principles/src/main/java/dip](https://github.com/gzdzss/blog-demo/tree/main/software-design-principles/src/main/java/dip)
+
+
+通过上面的例子，相信大家已经领略到在代码中使用依赖倒置原则的重要性了。总结一下依赖倒置原则的优点：
+
+- 减少类之间的耦合
+- 降低并行开发引起的风险
+- 提高代码的可读性和可维护性
 
 ### 3.单一职责原则
 > todo
@@ -214,3 +328,4 @@ demo地址:[https://github.com/gzdzss/blog-demo/tree/main/software-design-princi
 ### 参考文献
 - [[1]浅谈软件设计的七大原则·Daemon Zhang](https://blog.csdn.net/u013655410/article/details/104410375)
 - [[2]作为程序员不可不会的设计模式七大原则之——“开闭原则”·编程小菜鸟](https://baijiahao.baidu.com/s?id=1670636817035694210&wfr=spider&for=pc)
+- [[3]六大设计原则之三：依赖倒置原则·匆执羊](https://www.jianshu.com/p/b68e2cc9b4f5)
