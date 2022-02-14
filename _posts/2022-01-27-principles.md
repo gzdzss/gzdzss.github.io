@@ -24,12 +24,12 @@ tags:
 
 
 ### 1.开闭原则
+#### 1.1定义
 > 开闭原则（Open Closed Principle，OCP）由勃兰特·梅耶（Bertrand Meyer）提出，他在 1988 年的著作《面向对象软件构造》（Object Oriented Software Construction）中提出：软件实体应当对扩展开放，对修改关闭（Software entities should be open for extension，but closed for modification），这就是开闭原则的经典定义。
 >> ***即当应用的需求改变时，在不修改软件实体的源代码或者二进制代码的前提下，可以扩展模块的功能，使其满足新的需求。***
 
-示例[[2]](https://baijiahao.baidu.com/s?id=1670636817035694210&wfr=spider&for=pc)：
-
-> 假设有一个水果店，该水果店现在出售：“苹果、香蕉。”
+#### 1.2示例
+> 假设有一个水果店，该水果店现在出售：“苹果、香蕉”[<sub>[2]</sub>](https://baijiahao.baidu.com/s?id=1670636817035694210&wfr=spider&for=pc)。
 >> 水果基类
 ```java
 /**
@@ -184,19 +184,20 @@ public static void main(String[] args) {
 
 demo地址:[https://github.com/gzdzss/blog-demo/tree/main/software-design-principles/src/main/java/ocp](https://github.com/gzdzss/blog-demo/tree/main/software-design-principles/src/main/java/ocp)
 
+#### 1.3结论
 这样优化后的代码就**遵守了“开闭原则”**。提供方可以对系统进行扩展（对扩展开放），当系统扩展了新的功能后不会影响到使用方，使用方不需要进行修改（对修改关闭）。
 
-通过上面的描述相信大家能看出，“开闭原则”给我们传递的思想就是：尽量通过扩展软件的模块、类、方法，来实现功能的变化，而不是通过修改已有的代码来完成。这样做就可以大大降低因为修改代码而给程序带来的出错率。
+- 尽量通过扩展软件的模块、类、方法，来实现功能的变化，而不是通过修改已有的代码来完成。
+- 这样做就可以大大降低因为修改代码而给程序带来的出错率。
 
 
 
 ### 2.依赖倒置原则
-> 依赖倒置原则（Dependence Inversion Principle，DIP）是 Object Mentor 公司总裁罗伯特·马丁（Robert C.Martin）于 1996 年在 C++ Report 上发表的文章。
->> 依赖倒置原则的原始定义为：高层模块不应该依赖低层模块，两者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象（High level modules shouldnot depend upon low level modules.Both should depend upon abstractions.Abstractions should not depend upon details. Details should depend upon abstractions）。其核心思想是：要面向接口编程，不要面向实现编程。
-
-示例[[3]](https://www.jianshu.com/p/b68e2cc9b4f5)
-
-> 假设我们现在有两辆车，一辆奔驰，一辆宝马，然后都需要让司机开车。
+#### 2.1定义
+> 依赖倒置原则（Dependence Inversion Principle，DIP）是 Object Mentor 公司总裁罗伯特·马丁（Robert C.Martin）于 1996 年在 C++ Report 上发表的文章。高层模块不应该依赖低层模块，两者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象（High level modules shouldnot depend upon low level modules.Both should depend upon abstractions.Abstractions should not depend upon details. Details should depend upon abstractions）。
+>> ***即要面向接口编程，不要面向实现编程。***
+#### 2.2示例
+> 假设我们现在有两辆车，一辆奔驰，一辆宝马，然后都需要让司机开车[<sub>[3]</sub>](https://www.jianshu.com/p/b68e2cc9b4f5)。
 >> 
 ```java
 /**
@@ -300,7 +301,7 @@ public class TslaCar implements Car {
 
 demo地址:[https://github.com/gzdzss/blog-demo/tree/main/software-design-principles/src/main/java/dip](https://github.com/gzdzss/blog-demo/tree/main/software-design-principles/src/main/java/dip)
 
-
+#### 2.3结论
 通过上面的例子，相信大家已经领略到在代码中使用依赖倒置原则的重要性了。总结一下依赖倒置原则的优点：
 
 - 减少类之间的耦合
@@ -308,19 +309,125 @@ demo地址:[https://github.com/gzdzss/blog-demo/tree/main/software-design-princi
 - 提高代码的可读性和可维护性
 
 ### 3.单一职责原则
-> todo
+#### 3.1定义
+> 单一职责原则（Single Responsibility Principle，SRP）又称单一功能原则，由罗伯特·C.马丁（Robert C. Martin）于《敏捷软件开发：原则、模式和实践》一书中提出的。这里的职责是指类变化的原因，单一职责原则规定一个类应该有且仅有一个引起它变化的原因，否则类应该被拆分（There should never be more than one reason for a class to change）。
+>>  ***即一个类/接口/方法只负责一项职责***
+
+#### 3.2示例
+> 假设我们有一个类，用来识别动物的主要"主要移动方式"
+>> 动物
+```java
+/**
+* 动物
+*/
+public class Animal {
+   public void mainMoveMode(String animalName) {
+       System.out.println(animalName + "用翅膀飞");
+   }
+}
+```
+>> 测试方法
+```java
+public static void main(String[] args) {
+       Animal animal = new Animal();
+       animal.mainMoveMode("小鸟");
+   }
+//小鸟用翅膀飞
+```
+
+ 目前看好像没有什么问题，这时候我们新的动物"小狗"需要来识别"主要移动方式"， 如果我们套用这个类则输出"小狗用翅膀飞"， 这样明显不合理
+>>于是我们需要进行如下改造改造:
+```java
+public class Animal {
+    public void mainMoveMode(String animalName) {
+        if ("小狗".equals(animalName)) {
+            System.out.println(animalName + "用脚走路");
+        } else {
+            System.out.println(animalName + "用翅膀飞");
+        }
+    }
+}
+```
+>> 测试方法
+```java
+public static void main(String[] args) {
+    Animal animal = new Animal();
+    animal.mainMoveMode("小鸟");
+    animal.mainMoveMode("小狗");
+}
+//小鸟用翅膀飞
+//小狗用脚走路
+```
+
+这样是实现功能，但是随着动物的变多，代码需要一直改动，这就违背了即一个类/接口/方法只负责一项职责的原则，于是我们可以进行以下改造
+>>我们将动物划分为 "飞禽" 与 走兽 
+```java
+/**
+  * 飞禽
+  */
+ public class Birds  extends  Animal {
+     @Override
+     public void mainMoveMode(String animalName) {
+         System.out.println(animalName + "用翅膀飞");
+     }
+ }
+ /**
+  * 走兽
+  */
+ public class Beasts extends Animal {
+     @Override
+     public void mainMoveMode(String animalName) {
+         System.out.println(animalName + "用脚走路");
+     }
+ }
+```
+>> 测试方法
+```java
+public static void main(String[] args) {
+    Birds birds = new Birds();
+    birds.mainMoveMode("小鸟");
+    birds.mainMoveMode("小蜜蜂");
+    Beasts beasts = new Beasts();
+    beasts.mainMoveMode("小狗");
+    beasts.mainMoveMode("小猫");
+}
+//小鸟用翅膀飞
+//小蜜蜂用翅膀飞
+//小狗用脚走路
+//小猫用脚走路
+```
+
+demo地址:[https://github.com/gzdzss/blog-demo/tree/main/software-design-principles/src/main/java/srp](https://github.com/gzdzss/blog-demo/tree/main/software-design-principles/src/main/java/dip)
+
+#### 3.3结论
+- 对于不同的职责需要进行解耦。后期需求变更维护互不影响。
+- 可以降低类的复杂度，提高类的可读性 ，提高系统的可维护性,降低变更引起的风险 。
+- 总体来说即一个类/接口/方法只负责一项职责。
+
 
 ### 4.接口隔离原则
+#### 4.1定义
 > todo
+#### 4.2示例
+#### 4.3结论
 
 ### 5.迪米特原则
+#### 5.1定义
 > todo
+#### 5.2示例
+#### 6.3结论
 
 ### 6.里氏替换原则
+#### 6.1定义
 > todo
+#### 6.2示例
+#### 6.3结论
 
 ### 7.合成复用原则
+#### 7.1定义
 > todo
+#### 7.2示例
+#### 7.3结论
 
 
 
