@@ -20,32 +20,30 @@ public static void main(String[] args) {
     int t6 = 1 << 5;
     int t7 = 1 << 6;
 
-    System.out.println(t1);
-    System.out.println(t2);
-    System.out.println(t3);
-    System.out.println(t4);
-    System.out.println(t5);
-    System.out.println(t6);
-    System.out.println(t7);
+    binaryString(t1);
+    binaryString(t2);
+    binaryString(t3);
+    binaryString(t4);
+    binaryString(t5);
+    binaryString(t6);
+    binaryString(t7);
 
     System.out.println("======");
-
+    
     //开启t1, t3
     int tmp = t1 + t3;
 
-    System.out.println(tmp);
-
-    //打印二进制
     binaryString(tmp);
-
+    
     //判断开启了 t1
     System.out.println((tmp & t1) == t1);
     //判断开启了 t3
     System.out.println((tmp & t3) == t3);
-
     //判断同时开启了 t1,t3
     System.out.println((tmp & (t1 + t3)) == (t1 + t3));
 
+    System.out.println("======");
+    
     //再追加开启t2
     tmp = (tmp + t2);
 
@@ -78,33 +76,29 @@ public static void main(String[] args) {
  * @param num
  */
 public static void binaryString(int num) {
-    System.out.println("======");
-    System.out.println(Integer.toBinaryString(num));
-    System.out.println("======");
+    String binaryString = Integer.toBinaryString(num);
+    System.out.println(num + " -> " + binaryString);
 }
+
 ```
 
 > 输出结果
 
 ```text
-1
-2
-4
-8
-16
-32
-64
+1 -> 1
+2 -> 10
+4 -> 100
+8 -> 1000
+16 -> 10000
+32 -> 100000
+64 -> 1000000
 ======
-5
-======
-101
-======
+5 -> 101
 true
 true
 true
 ======
-111
-======
+7 -> 111
 true
 true
 true
