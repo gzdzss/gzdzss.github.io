@@ -2,7 +2,7 @@
 layout:     post
 title:      "Macos ulimit 配置"
 subtitle:   "ulimit"
-date:       2023-06-16 18:00:00
+date:       2023-06-19 18:00:00
 author:     "Andrew"
 catalog: false
 header-style: text
