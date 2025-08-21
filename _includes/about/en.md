@@ -1,1 +1,1 @@
-Hi, I am Andrew Chow. 
+DERS拉夫德鲁 <br> Hobbies: programming, hiking.
