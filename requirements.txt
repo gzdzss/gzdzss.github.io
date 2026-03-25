@@ -1,0 +1,22 @@
+# OpenClaw博客服务器依赖
+# 基础Python环境，通常无需额外安装
+
+# 如果需要HTTPS证书自动续期，可以安装：
+# certbot==2.9.0
+
+# 如果需要更高级的HTTP服务器，可以安装：
+# gunicorn==21.2.0
+# gevent==23.9.1
+
+# 当前版本依赖：
+# Python 3.8+
+# 标准库：http.server, ssl, socketserver, os, sys, datetime
+
+# 运行命令：
+# sudo python3 server.py
+
+# 或者使用虚拟环境：
+# python3 -m venv venv
+# source venv/bin/activate
+# pip install -r requirements.txt
+# sudo venv/bin/python server.py
