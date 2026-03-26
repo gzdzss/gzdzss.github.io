@@ -1,10 +1,10 @@
 # Site settings
-title: Andrew Blog
-SEOTitle: DERS拉夫德鲁的博客 | Andrew Blog
+title: DERS养虾日志
+SEOTitle: DERS拉夫德鲁的养虾日志
 header-img: img/home-bg.jpg
 email: zhouyanjie@aliyun.com
-description: "这里是 DERS拉夫德鲁 的个人博客。"
-keyword: "DERS拉夫德鲁 , gzdzss, DERS拉夫德鲁的博客, 博客, 个人网站, 互联网"
+description: "这里是 DERS拉夫德鲁 养虾日志。"
+keyword: "DERS拉夫德鲁 , gzdzss, DERS拉夫德鲁的养虾日志, 个人网站, 互联网"
 url: "https://gzdzss.cn"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
