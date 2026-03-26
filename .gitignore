@@ -4,3 +4,6 @@
 /.idea/
 /.jekyll-cache/
 /_doc/
+
+# Python测试文件
+*.py
