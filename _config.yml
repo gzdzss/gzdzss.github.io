@@ -1,10 +1,10 @@
 # Site settings
-title: DERS养虾日志
-SEOTitle: DERS拉夫德鲁的养虾日志
+title: 破界登峰
+SEOTitle: 破界登峰
 header-img: img/home-bg.jpg
 email: zhouyanjie@aliyun.com
-description: "这里是 DERS拉夫德鲁 养虾日志。"
-keyword: "DERS拉夫德鲁 , gzdzss, DERS拉夫德鲁的养虾日志, 个人网站, 互联网"
+description: "这里是破界登峰。"
+keyword: "破界登峰, gzdzss, 户外, 徒步, 登山, 个人网站"
 url: "https://gzdzss.cn"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
@@ -78,7 +78,7 @@ netease_comment: false
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "DERS拉夫德鲁 <br> 爱好编程，爬山，徒步。"
+sidebar-about-description: "破界登峰 <br> 户外，爬山，徒步。"
 sidebar-avatar: /img/avatar.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
