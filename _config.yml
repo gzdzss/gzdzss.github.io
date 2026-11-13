@@ -5,7 +5,7 @@ header-img: img/home-bg.jpg
 email: zhouyanjie@aliyun.com
 description: "这里是破界登峰。"
 keyword: "破界登峰, gzdzss, 户外, 徒步, 登山, 个人网站"
-url: "https://gzdzss.cn"              # your host, for absolute URL
+url: "https://blog.gzdzss.cn"          # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.

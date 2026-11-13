@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 项目概述
 
-这是一个基于 Hux Blog 主题的 Jekyll 个人博客，部署在 GitHub Pages (https://gzdzss.cn)。支持侧边栏布局、标签云、PWA 离线访问等功能。
+这是一个基于 Hux Blog 主题的 Jekyll 个人博客，部署在 GitHub Pages (https://blog.gzdzss.cn)。支持侧边栏布局、标签云、PWA 离线访问等功能。
 
 ## 常用命令
 

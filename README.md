@@ -1,1 +1,1 @@
-#个人博客 [https://gzdzss.cn/](https://gzdzss.cn/)
+#个人博客 [https://blog.gzdzss.cn/](https://blog.gzdzss.cn/)
